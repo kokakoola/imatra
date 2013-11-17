@@ -273,9 +273,16 @@ margin: 15px 0 12px;
 // }
 
 // Folding box with arrow
-.arrow_box {
+.js-arrowbox-wrapper {
+  padding-top: 30px;
   width: 100%;
+  left: 0;
+  right: 0;
+  top: auto;
   position: absolute;
+}
+
+.arrow_box {
   background-image: -webkit-linear-gradient(top, #f7f7f6, #eceded);
   background-image: -moz-linear-gradient(top, #f7f7f6, #eceded);
   background-image: -o-linear-gradient(top, #f7f7f6, #eceded);
@@ -287,8 +294,6 @@ margin: 15px 0 12px;
   min-height: 20px;
   position: relative;
   margin-bottom: 20px;
-  padding: 0 1000px;
-  margin-left: -500px;
 }
 .arrow_box:after {
   bottom: 100%;
@@ -311,14 +316,8 @@ margin: 15px 0 12px;
   left: 50%;
 }
 
-.container.arrowbox {
-    margin-left: -500px;
-    padding: 0;
-}
-
-.arrowbox .distanced {
-  padding: 9px 0 9px;
-  margin-left: -15px;
+.arrow_box .distanced {
+  padding: 19px 0 19px;
 }
 
 // Colored CTA boxes

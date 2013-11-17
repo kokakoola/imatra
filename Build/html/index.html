@@ -126,21 +126,27 @@
           <br><br><br>
 
           <div class="container" >
-            <div class="col-md-12 col-xs-12 col-sm-12">
-              <h3 class="linehead">Imatra iseteeninduse komponendid</h3>
-              <p>SIin ei ole mingit järjepidevust ega loogikat - siia on kokku koondatud võimalikud elemendid ja nende kombinatsioonid. Stiiliraamat Imatra iseteenindusele.</p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, eaque, corrupti, nobis, natus quos tempora ad asperiores adipisci at ullam culpa rerum repellat beatae impedit earum! Natus, dignissimos impedit unde? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex, quis, nemo, unde, beatae libero quidem nulla soluta eos error asperiores molestias dignissimos. Id, dolores maiores nesciunt tempora quia iusto repellendus.</p>
-              <button type="button" class="btn btn-primary">Primary</button>
-              <button type="button" class="btn btn-default">Default</button>
+            <div class="row">
+              <div class="col-md-12 col-xs-12 col-sm-12">
+                <h3 class="linehead">Imatra iseteeninduse komponendid</h3>
+                <p>SIin ei ole mingit järjepidevust ega loogikat - siia on kokku koondatud võimalikud elemendid ja nende kombinatsioonid. Stiiliraamat Imatra iseteenindusele.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, eaque, corrupti, nobis, natus quos tempora ad asperiores adipisci at ullam culpa rerum repellat beatae impedit earum! Natus, dignissimos impedit unde? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex, quis, nemo, unde, beatae libero quidem nulla soluta eos error asperiores molestias dignissimos. Id, dolores maiores nesciunt tempora quia iusto repellendus.</p>
+                <button type="button" class="btn btn-primary" id="js-arrowbox-button">Primary</button>
+                <button type="button" class="btn btn-default">Default</button>
+              </div>
             </div>
-            <br><br><br>
-            <div class="arrow_box">
-              <div class="container arrowbox">
-                <div class="col-md-12 col-sm-12  col-xs-12">
-                  <p class="distanced"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum, vel, animi voluptatibus ab quaerat quae dolorem magni mollitia dolor molestias aperiam debitis nostrum porro accusantium tenetur! Debitis, blanditiis, neque. Dolore. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, repudiandae, numquam, expedita, reiciendis at nemo totam minima est adipisci recusandae et mollitia asperiores. Reiciendis, atque, quo nam ducimus nisi illum!</p>
+            <div class="js-arrowbox-wrapper">
+              <div class="arrow_box">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-12 col-sm-12  col-xs-12">
+                      <p class="distanced"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum, vel, animi voluptatibus ab quaerat quae dolorem magni mollitia dolor molestias aperiam debitis nostrum porro accusantium tenetur! Debitis, blanditiis, neque. Dolore. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, repudiandae, numquam, expedita, reiciendis at nemo totam minima est adipisci recusandae et mollitia asperiores. Reiciendis, atque, quo nam ducimus nisi illum!</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
+            <div class="bottomOffset"></div>
 
             <div id="features_marker"></div>
             <div class="row">
@@ -433,13 +439,35 @@
 <script type="text/javascript" src="js/function.js"></script>
 <script type="text/javascript" src="js/silviomoreto-bootstrap-select/bootstrap-select.js"></script>
 
-<script type="text/javascript">
-$(window).on('load', function () {
+<script>
+  $(window).on('load', function () {
+    $('.selectpicker').selectpicker();
+  });
 
-  $('.selectpicker').selectpicker();
 
-            // $('.selectpicker').selectpicker('hide');
-          });
+  $(document).ready(function() {
+    var cont = $('.js-arrowbox-wrapper');
+    var mainDiv = $('.bottomOffset' );
+
+    $(cont).hide();
+
+    $('#js-arrowbox-button').toggle(function() {
+      mainDiv.animate({
+        marginTop: '+='+(cont.height() + 10) + 'px'
+      }, 500);
+    },function() {
+      mainDiv.animate({
+        marginTop: '-='+(cont.height() + 10) + 'px'
+      }, 500);
+    });
+
+    $('#js-arrowbox-button').click(function(e) {
+      $(cont).slideToggle('slow');
+      e.preventDefault();
+        // var bottomOffset = mainDiv.css('marginTop', (cont.height() + 10) + 'px');
+    });
+  });
+
 </script>
 
 </body>
