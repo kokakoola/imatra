@@ -1,0 +1,466 @@
+// Core variables and mixins
+@import "variables.less";
+@import "mixins.less";
+
+// Reset
+@import "normalize.less";
+@import "print.less";
+
+// Core CSS
+@import "scaffolding.less";
+@import "type.less";
+@import "code.less";
+@import "grid.less";
+@import "tables.less";
+@import "forms.less";
+@import "buttons.less";
+
+// Components
+@import "component-animations.less";
+@import "glyphicons.less";
+@import "dropdowns.less";
+@import "button-groups.less";
+@import "input-groups.less";
+@import "navs.less";
+@import "navbar.less";
+@import "breadcrumbs.less";
+@import "pagination.less";
+@import "pager.less";
+@import "labels.less";
+@import "badges.less";
+@import "jumbotron.less";
+@import "thumbnails.less";
+@import "alerts.less";
+@import "progress-bars.less";
+@import "media.less";
+@import "list-group.less";
+@import "panels.less";
+@import "wells.less";
+@import "close.less";
+
+// Components w/ JavaScript
+@import "modals.less";
+@import "tooltip.less";
+@import "popovers.less";
+@import "carousel.less";
+
+// Utility classes
+@import "utilities.less";
+@import "responsive-utilities.less";
+@import "magic-bootstrap.less";
+@import "../js/silviomoreto-bootstrap-select/bootstrap-select.css";
+
+@white: #fff;
+@yellow: #ffdd00;
+@orange: #f69a57;
+@red: #d92231;
+@buttonborder: #fdb913;
+@mediumgray: #cecdce;
+@black: #000;
+
+@font-size-medium: 13px;
+@font-size-smaller: 12px;
+@font-size-small: 11px;
+@font-size-largest: 36px;
+
+@input-border-radius: 4px; 
+
+.graygradient (@startColor: #f7f7f6, @endColor: #eceded) {
+  background-color: @startColor;
+  background: -webkit-gradient(linear, left top, left bottom, from(@startColor), to(@endColor));
+  background: -webkit-linear-gradient(top, @startColor, @endColor);
+  background: -moz-linear-gradient(top, @startColor, @endColor);
+  background: -ms-linear-gradient(top, @startColor, @endColor);
+  background: -o-linear-gradient(top, @startColor, @endColor);
+}
+
+// GENEARL STYLES
+
+* {
+  font-family:'Arial', sans-serif;
+}
+
+// For fixed layout. Look further http://getbootstrap.com/getting-started/#disable-responsive
+// .container {
+//   width: 960px;
+//   margin: 0 auto;
+// }
+
+.btn {
+  display: inline-block;
+  margin-bottom: 0; // For input.btn
+  font-weight: @btn-font-weight;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+  white-space: nowrap;
+  text-transform: uppercase;
+  .button-size(@padding-base-vertical; @padding-base-horizontal; @font-size-smaller; @line-height-base; @border-radius-base);
+  .user-select(none);
+
+  &:focus {
+    .tab-focus();
+  }
+}
+
+.button-variant-primary(@color; @background; @border) {
+  color: @color; 
+  background-color: @background;
+  border-color: @border;
+
+  &:hover,
+  &:focus,
+  &:active,
+  &.active,
+  .open .dropdown-toggle& {
+    color: @color;
+    background-color: @orange;
+        border-color: darken(@border, 12%);
+  }
+}
+
+.btn-primary {
+  .button-variant-primary(@btn-primary-color; @btn-primary-bg; @btn-primary-border);
+}
+
+a:hover {
+  text-decoration: none;
+  color: darken(@link-color, 15%);
+}
+
+.orange {
+  color: @orange;
+}
+
+i.yellow {
+  color: @yellow;
+}
+
+i.red {
+  color: @red;
+}
+
+p {
+  margin-top: 10px;
+}
+
+// Large fontsize
+span.largest {
+  font-size: @font-size-largest;
+  font-weight: bold;
+  line-height: 1.3;
+}
+
+// Lined headline
+.linehead {
+  color: @orange;
+  display: table;
+  white-space: nowrap;
+  overflow: hidden;
+  line-height: 1.3;
+  margin-bottom: 30px;
+}
+
+.linehead:after {
+  content: "";
+  display: table-cell;
+  border-top: 1px solid #cecdce;
+  width: 100%;
+  position: relative;
+  left: 1.5%;
+  top: 0.7em;
+}
+
+// Header styles
+#header .inner .top {
+  background: @black;
+  & .list-inline {
+    line-height: 30px;
+    margin: 0;
+    color: @white;
+    font-size: @font-size-medium;
+  }
+}
+
+.mainnav {
+  background: @gray-light;
+  padding: 0;
+  margin-bottom: 0;
+}
+
+.stripe {
+  height: 4px;
+  width: 100%;
+  background: @yellow;
+  position: absolute;
+  bottom: 0;
+  -webkit-box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.21);
+  -moz-box-shadow:    0px 2px 5px rgba(0, 0, 0, 0.21);
+  box-shadow:         0px 2px 5px rgba(0, 0, 0, 0.21);
+}
+
+.navbar {
+  margin: 0;
+  margin-bottom: 0;
+}
+
+#header .inner .bottom {
+  border-top: solid 5px @red;
+}
+
+.fixed #logo {
+height: 65px;
+}
+
+#logo {
+height: 75px;
+margin: 15px 0 12px;
+}
+
+#top_menu {
+  float: left;
+}
+
+#top_menu .nav-pills li {
+  display: inline-block;
+  vertical-align: top;
+  font-size: @font-size-medium;
+}
+
+#top_menu .nav-pills li a, #top_menu .nav-pills > .active > a {
+  color: #000!important;
+  text-decoration: none;
+  text-decoration: none;
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  padding: 15px 20px 35px;
+  background: transparent;
+}
+
+#top_menu .nav-pills > li > a:hover {
+  background: transparent;
+  color: @gray-dark!important;
+}
+
+#top_menu .nav-pills li.active a:after {
+  content:'';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 5px;
+  background: @red;
+  padding: auto 45px;
+}
+#top_menu .nav-pills li:hover:not(.active) a:after {
+  content:'';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  border-bottom: solid 5px @orange;
+  -webkit-transition: all 800ms ease;
+  -moz-transition: all 800ms ease;
+  -ms-transition: all 800ms ease;
+  -o-transition: all 800ms ease;
+  transition: all 800ms ease;
+}
+
+// .fixed #top_menu .nav-pills {
+// padding-top: 20px;
+// }
+
+// Folding box with arrow
+.arrow_box {
+  width: 100%;
+  position: absolute;
+  background-image: -webkit-linear-gradient(top, #f7f7f6, #eceded);
+  background-image: -moz-linear-gradient(top, #f7f7f6, #eceded);
+  background-image: -o-linear-gradient(top, #f7f7f6, #eceded);
+  background-image: linear-gradient(to bottom, #f7f7f6, #eceded);
+  border: 1px solid @gray-light;
+  -moz-box-shadow: 0 -1px 2px rgba(0,0,0,0.2);
+  -webkit-filter: drop-shadow( 0 -1px 2px rgba(0,0,0,0.2));
+  filter: drop-shadow(0 -1px 2px rgba(0,0,0,0.2));
+  min-height: 20px;
+  position: relative;
+  margin-bottom: 20px;
+  padding: 0 1000px;
+  margin-left: -500px;
+}
+.arrow_box:after {
+  bottom: 100%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  -moz-box-shadow: 0 -2px 1px rgba(0,0,0,0.2);
+  -webkit-filter: drop-shadow( 0 -2px 1px rgba(0,0,0,0.2));
+  filter: drop-shadow(0 -2px 1px rgba(0,0,0,0.2));
+}
+
+.arrow_box:after {
+  border-color: rgba(0, 0, 0, 0);
+  border-style: solid;
+  border-bottom-color: @gray-lighter;
+  border-width: 15px;
+  left: 50%;
+}
+
+.container.arrowbox {
+    margin-left: -500px;
+    padding: 0;
+}
+
+.arrowbox .distanced {
+  padding: 9px 0 9px;
+  margin-left: -15px;
+}
+
+// Colored CTA boxes
+.well.red {
+  background: @red;
+  color: @white;
+  & a {
+    color: @yellow;
+  }
+}
+
+.well.yellow {
+  background-color: #fd0;
+  background-image: -webkit-linear-gradient(top, #ffdd01, #ffe332);
+  background-image: -moz-linear-gradient(top, #ffdd01, #ffe332);
+  background-image: -o-linear-gradient(top, #ffdd01, #ffe332);
+  background-image: linear-gradient(to bottom, #ffdd01, #ffe332);
+
+}
+
+.well.blue {
+  background-color: #006ab0;
+  background-image: -webkit-linear-gradient(top, #006ab0, #3287bf);
+  background-image: -moz-linear-gradient(top, #006ab0, #3287bf);
+  background-image: -o-linear-gradient(top, #006ab0, #3287bf);
+  background-image: linear-gradient(to bottom, #006ab0, #3287bf);
+  color: @white;
+}
+
+.well.gray {
+  background-image: -webkit-linear-gradient(top, #f7f7f6, #eceded);
+  background-image: -moz-linear-gradient(top, #f7f7f6, #eceded);
+  background-image: -o-linear-gradient(top, #f7f7f6, #eceded);
+  background-image: linear-gradient(to bottom, #f7f7f6, #eceded);
+
+  & hr {
+    border-top: 1px solid @gray-light;
+  }
+}
+
+// Footer styles
+#empty {
+  margin-top: 40px;
+}
+
+#footer {
+  font-size: @font-size-smaller;
+  .graygradient;
+  padding: 9px 0 9px;
+  color: @gray;
+  border-top: 1px solid @gray-light;
+  & strong {
+    color: @black;
+  }
+}
+
+// Form styles
+input[type="radio"] {
+  margin-right: 10px;
+}
+
+label {
+  font-weight: normal;
+}
+
+input[type="text"], textarea {
+    background:#fff;
+    border:1px solid #cfcfcf;
+    border-radius:0;
+    box-shadow:none;
+    font-size:14px;
+    font-style:normal;
+    color: @gray-dark;
+  }
+
+input[type="text"]:focus, textarea:focus {
+    box-shadow:none;
+}
+::-webkit-input-placeholder { 
+    color: @gray-light;
+}
+:-moz-placeholder { 
+    color: @gray-light;
+}
+::-moz-placeholder {
+    color: @gray-light;
+}
+:-ms-input-placeholder { 
+    color: @gray-light;
+}
+
+form {
+    margin:0;
+  }
+
+.form-control:focus, .bootstrap-select .btn:focus {
+  border-color: @orange;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 221, 0, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 221, 0, 0.6); 
+}
+
+.btn:focus {
+  outline: none;
+  outline: none;
+  outline-offset: 0;
+  -webkit-box-shadow:  0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(246, 154, 87, 0.8);
+  box-shadow:  0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(246, 154, 87, 0.8); 
+}
+
+input.form-control:focus {
+  border-color: @orange;
+  outline: 0;
+  -webkit-box-shadow:  0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 221, 0, 0.6);
+  box-shadow:  0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 221, 0, 0.6); 
+}
+
+input[type="text"] {
+    height:30px;
+    line-height:30px;
+    padding:0 19px;
+    width:100%;
+    margin-bottom:15px;
+    border-radius: 4px;
+  }
+textarea {
+    padding:15px 19px;
+    width:100%;
+    height:120px;
+    resize:none;
+    margin-bottom:10px;
+    border-radius: 4px;
+}
+
+.selectpicker {
+  text-transform: none;
+}
+
+.margined * {
+  margin-right: 5px !important;
+}
+
+.mediumwidth {
+  width: 250px !important;
+}
