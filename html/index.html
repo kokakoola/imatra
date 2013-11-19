@@ -102,8 +102,7 @@
 
 
         <div id="wrapper">
-          <br><br><br>
-
+          <br>
           <div class="container" >
             <div class="row">
               <div class="col-md-12 col-xs-12 col-sm-12">
@@ -470,48 +469,11 @@
 </div><!-- /.modal -->
 
 <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
-<script type="text/javascript" src="js/jquery-ui.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.js"></script>
-<script type="text/javascript" src="js/rs-plugin/js/jquery.themepunch.plugins.min.js"></script>
-<script type="text/javascript" src="js/jquery.easy-pie-chart.js"></script>
 <script type="text/javascript" src="js/library.js"></script>
 <script type="text/javascript" src="js/function.js"></script>
 <script type="text/javascript" src="js/silviomoreto-bootstrap-select/bootstrap-select.js"></script>
-
-<script>
-
-  $(document).ready(function() {
-
-  $('.selectpicker').selectpicker();
-
-    var toggled = $('.js-togglable');
-    var cont = $('.js-arrowbox-wrapper');
-    var mainDiv = $('.bottomOffset' );
-
-    $(toggled).hide();
-    $(cont).hide();
-
-    $('.js-slidetoggle').click(function(e) {
-        $(this).next('div.js-togglable').slideToggle('fast');
-      });
-
-    $('#js-arrowbox-button').toggle(function() {
-      mainDiv.animate({
-        marginTop: '+='+(cont.height() + 10) + 'px'
-      }, 500);
-    },function() {
-      mainDiv.animate({
-        marginTop: '-='+(cont.height() + 10) + 'px'
-      }, 500);
-    });
-
-    $('#js-arrowbox-button').click(function(e) {
-      $(cont).slideToggle('slow');
-      e.preventDefault();
-    });
-  });
-
-</script>
+<script type="text/javascript" src="js/frontend.js"></script>
 
 </body>
 </html>
