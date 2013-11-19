@@ -60,13 +60,30 @@
           </div>
           <!-- /end notification bar -->
 
-          <!-- start top grey bar -->
+          <!-- start top black bar -->
           <div class="top">
             <div class="container">
               <div class="row"> 
-                <div class="col-md-12 col-xs-12 col-sm-12">                               
-                 <!-- edit social icons here -->
+                <div class="col-md-12 col-xs-12 col-sm-12">
+                  <div style="width: 100px;">
+                    <select class="selectpicker" name="languages" id="languages" data-width="auto" data-style="btn btn-link" show-menu-arrow show-tick>
+                      <option value="1">Eesti</option>
+                      <option value="2">Teine</option>
+                    </select>
+                  </div>
                  <ul class="list-inline text-right">
+                  <!-- <li class="dropdown"> 
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><strong >Nimi Perekonanimi <span class="caret"></span></strong></a> 
+      <ul class="dropdown-menu">
+    <li role="presentation"><a tabindex="-1" href="#">Action</a></li>
+    <li role="presentation"><a tabindex="-1" href="#">Another action</a></li>
+    <li role="presentation"><a tabindex="-1" href="#">Something else here</a></li>
+    <li role="presentation" class="divider"></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+  </ul>
+                  </li> -->
+
+                  <li> <button type="button" class="btn btn-primary btn-sm">Logi sisse</button></li>
                   <li> <strong>Nimi Perekonanimi</strong></li>
                   <li><a href="#"><i class="icon-envelope yellow"></i></a></li>
                   <li><a href="#"><i class="icon-remove red"></i></a></li>
@@ -78,7 +95,7 @@
           </div>
           <a href="#" class="scrollup"></a>
         </div>
-        <!-- /end top grey bar -->
+        <!-- /end top black bar -->
 
         <!-- start logo and nav area -->
         <div class="bottom">
@@ -152,6 +169,10 @@
             <div class="row">
               <div class="col-md-12 col-xs-12 col-sm-12">
                 <h3 class="linehead">Personaalsed pakkumised</h3>
+                <select class="selectpicker" name="languages" id="languages" data-width="auto" data-style="btn btn-link" show-menu-arrow show-tick>
+                    <option value="1">Eesti</option>
+                    <option value="2">Teine</option>
+                  </select>
               </div>
               <div class="col-md-4 col-sm-6 col-xs-12">
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, assumenda, in, harum, numquam nihil culpa iusto repellendus molestiae et facilis ullam rerum nesciunt impedit consequuntur cum veritatis officiis provident tenetur.</p>
@@ -422,11 +443,15 @@
                   <input type="text" class="mediumwidth form-control" placeholder="88888888">
                   
                   <button type="submit" class="btn btn-primary">Sisene mobiil-ID'ga</button>
-                  
-                  <button type="submit" class="btn btn-primary">Sisene ID-kaardiga</button>
-                  <p><strong><a href="">Sisene internetipanga kaudu:</a></strong></p>
-                  <button type="submit" class="btn btn-default">Swedbank</button>
-                  <button type="submit" class="btn btn-default">SEB</button>
+                  <input type="submit" value="Sisene mobiil-ID'ga" class="btn btn-primary"/>
+                  <button type="input" class="btn btn-primary">Sisene ID-kaardiga</button>
+                  <p class="js-slidetoggle">
+                    <a href="javascript:void(0);" >Sisene internetipanga kaudu:</a>
+                  </p>
+                  <div class="js-togglable">
+                    <button type="submit" class="btn btn-default">Swedbank</button>
+                    <button type="submit" class="btn btn-default">SEB</button>
+                  </div>
                 </form>
               </div>
             </div>
@@ -496,19 +521,21 @@
 <script type="text/javascript" src="js/silviomoreto-bootstrap-select/bootstrap-select.js"></script>
 
 <script>
-  $(window).on('load', function () {
-    $('.selectpicker').selectpicker();
-  });
-
-// $('#js-arrowbox-button').click(function(e) {
-//     $(this).closest('div').slideToggle('slow');
-// });
 
   $(document).ready(function() {
+
+  $('.selectpicker').selectpicker();
+
+    var toggled = $('.js-togglable');
     var cont = $('.js-arrowbox-wrapper');
     var mainDiv = $('.bottomOffset' );
 
+    $(toggled).hide();
     $(cont).hide();
+
+    $('.js-slidetoggle').click(function(e) {
+        $(this).next('div.js-togglable').slideToggle('fast');
+      });
 
     $('#js-arrowbox-button').toggle(function() {
       mainDiv.animate({

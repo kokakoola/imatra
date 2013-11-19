@@ -37,10 +37,10 @@ input, select, textarea {
 
 input[type="submit"], label {
     cursor:pointer;}
-input[type="submit"] {
+/*input[type="submit"] {
 	-webkit-appearance: none;
 	border-radius:0;
-}
+}*/
 
 textarea {
     overflow:auto;}
