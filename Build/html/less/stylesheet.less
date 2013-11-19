@@ -48,6 +48,9 @@
 @import "utilities.less";
 @import "responsive-utilities.less";
 @import "magic-bootstrap.less";
+
+// Custom classes
+@import url('http://fonts.googleapis.com/css?family=Titillium+Web:400'); 
 @import "../js/silviomoreto-bootstrap-select/bootstrap-select.css";
 
 @white: #fff;
@@ -77,15 +80,12 @@
 
 // GENEARL STYLES
 
-* {
-  font-family:'Arial', sans-serif;
-}
-
 // For fixed layout. Look further http://getbootstrap.com/getting-started/#disable-responsive
-// .container {
-//   width: 960px;
-//   margin: 0 auto;
-// }
+.container {
+  max-width: none !important;
+  width: 1000px;
+  margin: 0 auto;
+}
 
 .btn {
   display: inline-block;
@@ -218,7 +218,7 @@ span.largest {
 }
 
 .fixed #logo {
-height: 65px;
+height: 60px;
 }
 
 #logo {
@@ -230,8 +230,17 @@ margin: 15px 0 12px;
   border-top: 4px solid @orange;
 }
 
-#header .dropdown-menu.open {
-  width: 100px !important;
+#header .bootstrap-select.btn-group .dropdown-menu {
+  min-width: 100px; 
+}
+
+#header .bootstrap-select.btn-group .dropdown-menu.inner {
+  position: static;
+}
+
+#header .bootstrap-select .selectpicker.btn {
+  margin-top: 5px;
+  line-height: 1;
 }
 
 #top_menu {
