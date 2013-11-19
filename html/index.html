@@ -195,6 +195,63 @@
             </div>
             <hr>
             <div class="row">
+              <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="well blue">
+                  <img style="float: right;" src="img/greenlogo.png" alt="">
+                  <h3>Täpne</h3>
+                  <dl>
+                    <dt>Tarbimiskoht:</dt>
+                    <dd>Tallinn mnt 32</dd>
+                    <dd>Tallinn mnt 32</dd>
+                    <dd>Tallinn mnt 32</dd>
+                  </dl>
+                  <span><strong>Tariif:</strong></span>
+                  <br>
+                  <span class="largest">5,96 s/kWh</span>
+                  <br>
+                  <span><strong>Kuukulu / Aastakulu:</strong></span>
+                  <br>
+                  <span class="largest">25 € / 115 €</span>
+                  <br>
+                  <br>
+                  <button type="button" class="btn btn-primary">Sõlmi leping</button>
+                </div>
+              </div>
+              <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="well yellow">
+                  <img style="float: right;" src="img/greenlogo.png" alt="">
+                  <h3>Püsiv 12 kuud</h3>
+                  <dl>
+                    <dt>Tarbimiskoht:</dt>
+                    <dd>Tallinn mnt 32</dd>
+                  </dl>
+                  <span><strong>Tariif:</strong></span>
+                  <br>
+                  <span class="largest">5,96 s/kWh</span>
+                  <br>
+                  <span><strong>Kuukulu / Aastakulu:</strong></span>
+                  <br>
+                  <span class="largest">25 € / 115 €</span>
+                  <br>
+                  <br>
+                  <button type="button" class="btn btn-primary">Sõlmi leping</button>
+                </div>
+              </div>
+              <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="well gray">
+                  <h3>Pakkumised ei sobinud?</h3>
+                  <p>Vali endale ise sobivate tingimustega pakett!</p>
+                  <button type="button" class="btn btn-primary">Tutvu teiste pakettidega</button>
+                  <hr>
+                  <h3>Soovid oma teistele tarbimiskohtadele samasugust head pakkumist?</h3>
+                  <p>Anna meile teada oma tarbimiskoht isegi kui see on meie võrgupiirkonnast väljaspool ning me võtame Sinuga ühendust!</p>
+                  <button type="button" class="btn btn-primary">Lisa tarbimiskoht</button>
+                </div>
+              </div>
+            </div>
+
+            <hr>
+            <div class="row">
               <div class="col-md-12 col-xs-12 col-sm-12">
                 <h3 class="linehead">Teine värviskeem</h3>
               </div>
@@ -407,7 +464,6 @@
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
-
 <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="js/jquery-ui.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.js"></script>
@@ -422,6 +478,9 @@
     $('.selectpicker').selectpicker();
   });
 
+// $('#js-arrowbox-button').click(function(e) {
+//     $(this).closest('div').slideToggle('slow');
+// });
 
   $(document).ready(function() {
     var cont = $('.js-arrowbox-wrapper');
@@ -442,7 +501,6 @@
     $('#js-arrowbox-button').click(function(e) {
       $(cont).slideToggle('slow');
       e.preventDefault();
-        // var bottomOffset = mainDiv.css('marginTop', (cont.height() + 10) + 'px');
     });
   });
 
